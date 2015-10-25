@@ -16,9 +16,6 @@ import app.habbo.xyz.Messages.MessageInterface;
 import app.habbo.xyz.Messages.ServerMessage;
 import app.habbo.xyz.R;
 
-/**
- * Created by Dario_2 on 23.08.2015.
- */
 public class AuthenticationOKMessageEvent implements MessageInterface{
     @Override
     public void Handle(ServerMessage msg) throws Exception {
