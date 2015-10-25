@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Habbo Hotel</string>
+    <string name="username">Benutzername</string>
+    <string name="login">Anmelden</string>
+    <string name="password">Passwort</string>
+    <string name="short_login">Login</string>
+    <string name="loggin">Einloggen</string>
+    <string name="register">Registrieren</string>
+    <string name="hplink">http://habbo.tl</string>
+    <string name="plsusername">Benutzername eingeben!</string>
+    <string name="plspassword">Passwort eingeben!</string>
+    <string name="somethingwrong">Etwas ging schief...</string>
+    <string name="wrongusername">Unbekannter Username!</string>
+    <string name="wrongpassword">Falsches Passwort!</string>
+</resources>
