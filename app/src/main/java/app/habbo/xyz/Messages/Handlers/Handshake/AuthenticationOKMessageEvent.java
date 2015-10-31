@@ -1,14 +1,17 @@
 package app.habbo.xyz.Messages.Handlers.Handshake;
 
+import android.graphics.BitmapFactory;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
+import app.habbo.xyz.Avatars.Avatar;
+import app.habbo.xyz.Avatars.AvatarSize;
+import app.habbo.xyz.Avatars.Gender;
+import app.habbo.xyz.Avatars.Gesture;
 import app.habbo.xyz.Environment;
 import app.habbo.xyz.Messages.ClientMessage;
 import app.habbo.xyz.Messages.Headers.Outgoing;

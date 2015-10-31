@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -68,59 +69,26 @@ public class Environment {
         isLoggedin = arg;
     }
 
-    public static Bitmap getRoundedCornerBitmap(Bitmap bitmap) {
-        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
-                bitmap.getHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(output);
+    public static Bitmap getCircleBitmap(Bitmap bitmap) {
+        final Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
+                bitmap.getWidth(), Bitmap.Config.ARGB_8888);
+        final Canvas canvas = new Canvas(output);
 
-        final int color = 0xff424242;
+        final int color = Color.RED;
         final Paint paint = new Paint();
-        final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+        final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getWidth());
         final RectF rectF = new RectF(rect);
-        final float roundPx = 12;
 
         paint.setAntiAlias(true);
         canvas.drawARGB(0, 0, 0, 0);
         paint.setColor(color);
-        canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
+        canvas.drawOval(rectF, paint);
 
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(bitmap, rect, rect, paint);
 
-        return output;
-    }
+        bitmap.recycle();
 
-    public static Bitmap downloadAvatar(String look, AvatarSize size)
-    {
-        String imageurl = "https://www.habbo.de/habbo-imaging/avatarimage?figure=" + look + "&direction=4&head_direction=4&gesture=sml&size=" + getAvatarSize(size);
-        InputStream in = null;
-        try {
-            URL url = new URL(imageurl);
-            URLConnection urlConn = url.openConnection();
-            HttpURLConnection httpConn = (HttpURLConnection) urlConn;
-            httpConn.connect();
-            in = httpConn.getInputStream();
-        } catch (Exception ex){
-            return getPlaceholderAvatar(); //Placeholder Avatar!!!!
-        }
-        Bitmap bmpimg = BitmapFactory.decodeStream(in);
-        return bmpimg;
-    }
-    public static Bitmap getPlaceholderAvatar()
-    {return null;
-        //return BitmapFactory.decodeResource(Environment.getCurrentActivity().getResources(), R.drawable.);
-    }
-    public static String getAvatarSize(AvatarSize avatarSize)
-    {
-        switch(avatarSize)
-        {
-            case Large:
-                return "l";
-            case Medium:
-                return "m";
-            case Small:
-                return "s";
-        }
-        return "s";
+        return output;
     }
 }
