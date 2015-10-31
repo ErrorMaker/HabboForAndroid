@@ -12,8 +12,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Arrays;
 
-import app.habbo.xyz.Utils.BitConverter;
-
 public class ClientMessage
 {
     private List<Byte> Message;
