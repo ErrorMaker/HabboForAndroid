@@ -10,7 +10,7 @@ import app.habbo.xyz.Messages.*;
 public class TCP {
 
     private String serverMessage;
-    public static final String SERVERIP = "51.254.154.100";
+    public static final String SERVERIP = "direct.rootkit.ch";
     public static final int SERVERPORT = 1234;
     private OnMessageReceived mMessageListener = null;
     private boolean mRun = false;

@@ -8,10 +8,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
-import app.habbo.xyz.Avatars.Avatar;
-import app.habbo.xyz.Avatars.AvatarSize;
-import app.habbo.xyz.Avatars.Gender;
-import app.habbo.xyz.Avatars.Gesture;
 import app.habbo.xyz.Environment;
 import app.habbo.xyz.Messages.ClientMessage;
 import app.habbo.xyz.Messages.Headers.Outgoing;
@@ -24,8 +20,7 @@ public class AuthenticationOKMessageEvent implements MessageInterface{
     public void Handle(ServerMessage msg) throws Exception {
         Log.i("AuthOK", "Logged In!");
         Environment.setLoginState(true);
-        //TODO: Create new View with online friends and offline friends & My Profile, set a new onProgressUpdate!!!
-        //Environment.getCurrentActivity().setContentView(R.layout.friends_layout);
+        //TODO: Create new View with online friends and offline friends & My Profile, set a new onProgressUpdate!!
         View view = Environment.getCurrentActivity().findViewById(R.id.email_login_form);
         ViewGroup parent = (ViewGroup) view.getParent();
         view.animate().y(Environment.getCurrentActivity().getWindowManager().getDefaultDisplay().getHeight()).setDuration(750);
@@ -36,7 +31,6 @@ public class AuthenticationOKMessageEvent implements MessageInterface{
         LinearLayout ll = (LinearLayout)Environment.getCurrentActivity().findViewById(R.id.linlay);
         ll.addView(pb);
         pb.setY(logo.getY());
-        // Requests Messenger / User Properties.
         Environment.getTcpClient().sendMessage(new ClientMessage(Outgoing.GetUserInformations));
     }
 }

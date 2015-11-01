@@ -4,7 +4,7 @@ public class ServerMessage {
 
     public int Id;
     public String[] Content;
-    private int Pointer = 0;
+    private int Pointer = 1;
     public ServerMessage(int id, String[] content)
     {
         Id = id;
@@ -16,10 +16,10 @@ public class ServerMessage {
     }
     public Integer ReadInteger()
     {
-        return Integer.parseInt(Content[Pointer++]);
+        return Integer.parseInt(ReadString());
     }
     public boolean ReadBoolean()
     {
-        return Content[Pointer++] == "true";
+        return Content[Pointer++].toLowerCase().equals("true");
     }
 }

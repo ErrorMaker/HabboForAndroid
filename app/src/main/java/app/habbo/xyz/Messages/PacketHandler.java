@@ -3,6 +3,7 @@ package app.habbo.xyz.Messages;
 import java.util.HashMap;
 
 import app.habbo.xyz.Messages.Handlers.Handshake.*;
+import app.habbo.xyz.Messages.Handlers.Messenger.*;
 import app.habbo.xyz.Messages.Headers.Incoming;
 
 
@@ -16,6 +17,10 @@ public class PacketHandler {
             handlers.put(Incoming.InvalidUsername, new InvalidUsernameMessageEvent());
             handlers.put(Incoming.InvalidPassword, new InvalidPasswordMessageEvent());
             handlers.put(Incoming.AuthenticationOK, new AuthenticationOKMessageEvent());
+            handlers.put(Incoming.HabboInformation, new HabboInformationMessageEvent());
+        // Messenger
+            handlers.put(Incoming.InitializeFriends, new InitializeFriendsMessageEvent());
+            handlers.put(Incoming.InitializeFriendRequests, new InitializeFriendRequestsMessageEvent());
     }
     public MessageInterface GetHandlerById(int Id)
     {
